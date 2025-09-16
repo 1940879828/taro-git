@@ -1,0 +1,67 @@
+{
+  "name": "taro-git",
+  "displayName": "taro-git",
+  "description": "a git manager",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onView:taro-commit"
+  ],
+  "publisher": "taro-git",
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "taro-git.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "taro-git-sidebar",
+          "title": "Taro Git",
+          "icon": "./assets/sidebar.svg"
+        }
+      ]
+    },
+    "views": {
+      "taro-git-sidebar": [
+        {
+          "id": "taro-commit",
+          "name": "Taro Commit",
+          "type": "webview",
+          "contextualTitle": "Taro Git Manager"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run build-rollup",
+    "compile": "tsc -p ./",
+    "watch": "pnpm run clear:out && tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js",
+    "clear": "rimraf ./out && rimraf ./node_modules",
+    "clear:out": "rimraf ./out/extension",
+    "build-rollup": "pnpm run clear:out && rollup -c",
+    "package": "pnpm vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.103.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}

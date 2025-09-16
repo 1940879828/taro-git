@@ -10,10 +10,23 @@
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
+				"--extensionDevelopmentPath=${workspaceFolder}/packages/extension"
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
+				"${workspaceFolder}/packages/extension/out/extension/**/*.js"
+			],
+			"preLaunchTask": "${defaultBuildTask}"
+		},
+		{
+			"name": "Extension Tests",
+			"type": "extensionHost",
+			"request": "launch",
+			"args": [
+				"--extensionDevelopmentPath=${workspaceFolder}/packages/extension",
+				"--extensionTestsPath=${workspaceFolder}/packages/extension/out/extension/__test__/suite/index"
+			],
+			"outFiles": [
+				"${workspaceFolder}/packages/extension/out/test/extension/**/*.js"
 			],
 			"preLaunchTask": "${defaultBuildTask}"
 		}
