@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "watch": "run-p type-check \"watch-only {@}\" --",
     "watch-only": "vite build --watch",
-    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false"
+    "type-check": "vue-tsc --noEmit -p tsconfig.app.json --composite false",
+    "build:panel": "vue-tsc -b && vite build --outDir out/extension/panel",
+    "build:sidebar": "vue-tsc -b && vite build --outDir out/extension/sidebar"
   },
   "dependencies": {
     "@types/node": "~22.18.5",
