@@ -25,6 +25,13 @@
           "title": "sidebar view example",
           "icon": "assets/icon01.svg"
         }
+      ],
+      "panel": [
+        {
+          "id": "panel-view",
+          "title": "Git",
+          "icon": "assets/icon01.svg"
+        }
       ]
     },
     "views": {
@@ -32,7 +39,19 @@
         {
           "id": "sidebar-view-container",
           "type": "webview",
-          "name": "sidebar view"
+          "name": "sidebar view",
+          "icon": "assets/icon01.svg"
+        }
+      ],
+      "panel-view": [
+        {
+          "id": "panel-view-container",
+          "type": "webview",
+          "name": "panel view",
+          "icon": "assets/icon01.svg",
+          "contextualTitle": "GitPanel",
+          "initialSize": 4,
+          "visibility": "visible"
         }
       ]
     }
