@@ -5,7 +5,20 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [vue(),
+    {
+      name: 'print-multi-entry-urls',
+      configureServer(server) {
+        server.httpServer?.once('listening', () => {
+          const protocol = server.config.server?.https ? 'https' : 'http'
+          const hostRaw = server.config.server?.host
+          const host = hostRaw === true ? 'localhost' : (hostRaw ?? 'localhost')
+          const port = server.config.server?.port ?? 5173
+          const origin = `${protocol}://${host}:${port}`
+          console.log(`\n  ➜  Panel: ${origin}/src/panel/index.html\n  ➜  Sidebar: ${origin}/src/sidebar/index.html\n`)
+        })
+      }
+    }],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

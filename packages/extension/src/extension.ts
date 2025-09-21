@@ -1,6 +1,7 @@
 import { window, ExtensionContext } from 'vscode'
 import { getHandlers } from './handlers'
 import { ViewProviderSidebar } from './view-provider/view-provider-sidebar'
+import { ViewProviderPanel } from './view-provider/view-provider-panel'
 
 export function activate(context: ExtensionContext) {
   const handles = getHandlers()
@@ -11,7 +12,7 @@ export function activate(context: ExtensionContext) {
   })
   context.subscriptions.push(sidebarViewDisposable)
 
-  const viewProvidersPanel = new ViewProviderSidebar(context, handles)
+  const viewProvidersPanel = new ViewProviderPanel(context, handles)
   const panelViewDisposable = window.registerWebviewViewProvider('panel-view-container', viewProvidersPanel, {
     webviewOptions: { retainContextWhenHidden: true },
   })
