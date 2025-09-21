@@ -22,15 +22,15 @@
       "activitybar": [
         {
           "id": "sidebar-view",
-          "title": "sidebar view example",
-          "icon": "assets/icon01.svg"
+          "title": "提交",
+          "icon": "assets/commit.svg"
         }
       ],
       "panel": [
         {
           "id": "panel-view",
-          "title": "Git",
-          "icon": "assets/icon01.svg"
+          "title": "版本管理",
+          "icon": "assets/commit.svg"
         }
       ]
     },
@@ -39,8 +39,8 @@
         {
           "id": "sidebar-view-container",
           "type": "webview",
-          "name": "sidebar view",
-          "icon": "assets/icon01.svg"
+          "name": "提交",
+          "icon": "assets/commit.svg"
         }
       ],
       "panel-view": [
@@ -48,7 +48,7 @@
           "id": "panel-view-container",
           "type": "webview",
           "name": "panel view",
-          "icon": "assets/icon01.svg",
+          "icon": "assets/commit.svg",
           "contextualTitle": "GitPanel",
           "initialSize": 4,
           "visibility": "visible"
