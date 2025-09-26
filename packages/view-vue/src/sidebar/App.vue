@@ -4,11 +4,15 @@ import CommitMessage from '@/components/sidebar/CommitMessage/CommitMessage.vue'
 import SidebarFooter from '@/components/sidebar/SidebarFooter/SidebarFooter.vue'
 import SidebarHeader from '@/components/sidebar/SidebarHeader/SidebarHeader.vue'
 import Tools from '@/components/sidebar/Tools/Tools.vue'
+
+const onHideSidebar = () => {
+  //window.electron.ipcRenderer.send('hide-sidebar-window')
+}
 </script>
 
 <template>
   <div class="sidebar-container">
-    <SidebarHeader />
+    <SidebarHeader :onHideSidebar="onHideSidebar" />
     <Tools />
     <CommitList />
     <CommitMessage />
