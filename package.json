@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predev": "rimraf packages/extension/out && pnpm run -F extension compile",
     "dev": "run-p dev:view-*",
     "dev:view-vue": "pnpm run -F view-vue watch",
     "dev:extension": "pnpm run -F extension watch"

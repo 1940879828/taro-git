@@ -27,6 +27,7 @@ export default defineConfig({
     },
   },
   build: {
+    watch: process.env.WATCH === 'true' ? {} : null,
     rollupOptions: {
       input: {
         panel: resolve(__dirname, 'src/panel/index.html'),

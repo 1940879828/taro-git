@@ -59,7 +59,10 @@
   "scripts": {
     "vscode:prepublish": "pnpm run build-rollup",
     "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
-    "watch": "pnpm run clear:out && tsc -watch -p ./",
+    "watch": "pnpm run clear:out && run-p watch:tsc watch:rollup",
+    "watch:tsc": "tsc --noEmit --watch",
+    "watch:rollup": "cross-env WATCH=true rollup -c -w",
+    "watch:extension": "pnpm run clear:out && pnpm run compile && pnpm run watch",
     "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
     "compile-tests": "tsc -p . --outDir out",
     "watch-tests": "tsc -p . -w --outDir out",
@@ -73,6 +76,7 @@
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^28.0.6",
+    "cross-env": "^7.0.3",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^16.0.1",
     "@types/mocha": "^10.0.10",

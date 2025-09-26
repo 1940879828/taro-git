@@ -2,10 +2,6 @@ import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from 'rollup-plugin-typescript2'
 import json from "@rollup/plugin-json";
-import { readFileSync } from 'fs'
-
-const pkg = JSON.parse(readFileSync('./package.json'))
-
 
 const plugins = [
     typescript({
@@ -20,6 +16,17 @@ const plugins = [
 
 export default {
     input: './src/extension.ts',
-    output: { format: 'cjs', file: pkg.main, },
+    output: { 
+        dir: './out/extension',
+        format: 'cjs',
+        sourcemap: true,
+        entryFileNames: '[name].js',
+        preserveModules: true,
+        preserveModulesRoot: 'src'
+    },
     plugins,
+    watch: process.env.WATCH === 'true' ? {
+        include: 'src/**',
+        clearScreen: false
+    } : false
 }
