@@ -12,7 +12,7 @@
 				"${workspaceFolder}/packages/extension/out/extension/**/*.js",
 				"${workspaceFolder}/packages/extension/out/extension/*.js"
 			],
-			"preLaunchTask": "${defaultBuildTask}"
+			"preLaunchTask": "watch-extension"
 		},
 		{
 			"name": "Extension Tests",
@@ -25,7 +25,7 @@
 			"outFiles": [
 				"${workspaceFolder}/packages/extension/out/test/extension/**/*.js"
 			],
-			"preLaunchTask": "${defaultBuildTask}"
+			"preLaunchTask": "watch-extension"
 		}
 	]
 }
