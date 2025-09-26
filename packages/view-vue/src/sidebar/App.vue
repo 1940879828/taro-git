@@ -8,12 +8,20 @@ import Tools from '@/components/sidebar/Tools/Tools.vue'
 const onHideSidebar = () => {
   //window.electron.ipcRenderer.send('hide-sidebar-window')
 }
+
+const refreshCommits = () => {
+  //window.electron.ipcRenderer.send('refresh-commits')
+}
+
+const revertCommits = () => {
+  //window.electron.ipcRenderer.send('revert-commits')
+}
 </script>
 
 <template>
   <div class="sidebar-container">
     <SidebarHeader :onHideSidebar="onHideSidebar" />
-    <Tools />
+    <Tools :refreshCommits="refreshCommits" :revertCommits="revertCommits" />
     <CommitList />
     <CommitMessage />
     <SidebarFooter />
