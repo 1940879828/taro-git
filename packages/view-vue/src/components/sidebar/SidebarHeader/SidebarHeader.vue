@@ -35,6 +35,7 @@ const sidebarStore = useSidebarStore()
   justify-content: space-between;
   padding: 0 4px;
   background: #3B4754;
+  height: 32px;
 }
 
 .tabs {
