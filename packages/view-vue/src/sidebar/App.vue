@@ -18,6 +18,14 @@ const refreshCommits = () => {
 const revertCommits = () => {
   //window.electron.ipcRenderer.send('revert-commits')
 }
+
+const commit = () => {
+  //window.electron.ipcRenderer.send('commit')
+}
+
+const commitAndPush = () => {
+  //window.electron.ipcRenderer.send('commit-and-push')
+}
 </script>
 
 <template>
@@ -29,9 +37,16 @@ const revertCommits = () => {
     <CommitMessageResizableContainer>
       <CommitMessage />
     </CommitMessageResizableContainer>
-    <SidebarFooter />
+    <SidebarFooter :commit="commit" :commitAndPush="commitAndPush" />
   </div>
 </template>
+
+<script setup lang="ts">
+defineProps<{
+  commit: () => void
+  commitAndPush: () => void
+}>()
+</script>
 
 <style scoped>
 .sidebar-container {

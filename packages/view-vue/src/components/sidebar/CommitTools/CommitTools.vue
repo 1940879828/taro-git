@@ -1,5 +1,5 @@
 <template>
-  <div>CommitTools</div>
+  <div></div>
 </template>
 
 <script setup lang="ts"></script>
